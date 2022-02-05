@@ -323,9 +323,16 @@ html {
 //   order: 4;
 // }
 
-// @media only screen and (max-width: 800px) {
-//   .main_list {
-//     width: 100%;
-//     float: none;
+// @media screen and (min-width: 601px) {
+//   * {
+//     font-size: 80px;
+//     background-color: blue;
+//   }
+// }
+
+// @media screen and (max-width: 600px) {
+//   * {
+//     font-size: 30px;
+//     color: red;
 //   }
 // }

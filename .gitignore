@@ -1,2 +1,4 @@
 node_modules
-public/bundle*
+.DS_Store
+.gitignore
+/bundle.js
