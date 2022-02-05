@@ -1,7 +1,7 @@
 {
   "name": "kathy-portfolio",
   "version": "1.0.0",
-  "description": "Kathy's portfolio",
+  "description": "Kathy's portfolio ",
   "main": "index.js",
   "scripts": {
     "build": "webpack --config webpack.config.js",
