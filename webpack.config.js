@@ -9,7 +9,7 @@ module.exports = {
   devServer: {
     static: __dirname,
     compress: true,
-    port: 8080,
+    port: 8080, // port for dev server
   },
 
   module: {
