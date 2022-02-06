@@ -1,10 +1,15 @@
 module.exports = {
-  // mode: 'development',
+  mode: 'development',
   entry: ['./src/index.js'],
   output: {
     path: __dirname,
     publicPath: '/',
     filename: './bundle.js',
+  },
+  devServer: {
+    static: __dirname,
+    compress: true,
+    port: 8080,
   },
 
   module: {
