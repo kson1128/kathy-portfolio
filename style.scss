@@ -45,58 +45,37 @@ li {
 
 //CONTAINER:
 body {
-  display: flex;
-  flex-direction: column;
-  flex: 5;
+  // display: flex;
+  // flex-direction: column;
+  // flex: 5;
   position: relative;
-  margin: 0px;
+  // margin: 0px;
   z-index: -3;
 }
-
-#wrap {
+div#wrap {
   position: relative;
-  overflow: hidden;
+  // overflow: hidden;
+  z-index: -2;
 }
 
 section {
   box-sizing: border-box;
-  position: relative;
+  // position: fixed;
   height: 100vh;
   overflow: hidden;
   font-size: 10vmin;
   padding: 1em;
-  color: hsla(0, 0%, 100%, 0.8);
   background-position: center center;
   background-size: cover;
 }
 
-section:first-child {
+section.article1:first-child {
   background-image: url('./src/imgs/bg.png');
   // position: relative;
-  // z-index: -3;
+  // z-index: -2;
   // width: 100%;
 }
-
-section:nth-child(2) {
-  background-image: url('./src/imgs/kathyson.png');
-  position: relative;
-  // z-index: -3;
-}
 // //FLOATING TEXT
-
-.wrap-words {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  text-align: center;
-  font-size: 2.5em;
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 2px;
-  color: #fff;
-  z-index: -1;
-}
 
 .txt-type {
   display: inline-block;
@@ -111,6 +90,16 @@ section:nth-child(2) {
   font-size: 45px;
   left: -12;
   // bottom: 613px;
+}
+
+section.article2:nth-child(2) {
+  // background-image: url('./src/imgs/kathyson.png');
+  // position: absolute;
+  // z-index: 3;
+  font-size: 13px;
+  img {
+    margin-left: 442px;
+  }
 }
 
 section:nth-child(3) {
@@ -132,7 +121,7 @@ section:nth-child(4) {
 }
 
 #indicator > div {
-  background-color: rgb(45, 20, 189);
+  background-color: rgb(21, 127, 214);
   width: 10px;
   height: 10px;
   border-radius: 5px;
@@ -260,7 +249,6 @@ section:nth-child(4) {
   animation-delay: none;
   overflow: hidden;
   bottom: -152px;
-  z-index: 2;
   align-items: center;
   color: rgb(31, 134, 54);
   font-family: 'serif', Times, serif;
