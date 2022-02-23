@@ -9,6 +9,7 @@ $color-black: #000000;
 }
 
 ul {
+  top: 50px;
   list-style: none;
   float: right;
   margin-right: 8px;
@@ -60,7 +61,6 @@ div#wrap {
 
 section {
   box-sizing: border-box;
-  // position: fixed;
   height: 100vh;
   overflow: hidden;
   font-size: 10vmin;
@@ -69,8 +69,141 @@ section {
   background-size: cover;
 }
 
+$strings: (
+  'Hi, my name is Kathy!' ' I am a Software Engineer '
+    'with a passion for creating.'
+);
+
+$durCharFwd: 0.1;
+$durFullGap: 2;
+$durCharBwd: 0.08;
+$durDoneGap: 1;
+
+$charCount: 0;
+$durTotal: 0;
+@each $string in $strings {
+  $charCount: $charCount + str-length($string);
+  $durTotal: $durTotal +
+    (str-length($string) * ($durCharFwd + $durCharBwd)) +
+    $durFullGap +
+    $durDoneGap;
+}
+@function percent($string, $letter, $modifier) {
+  $stringsPast: $string - 1;
+  $time: 0;
+  @while $stringsPast > 0 {
+    $time: $time +
+      (
+        ($durCharFwd + $durCharBwd) * (str-length(nth($strings, $stringsPast)))
+      ) +
+      $durFullGap +
+      $durDoneGap;
+    $stringsPast: $stringsPast - 1;
+  }
+  @if $letter <= str-length(nth($strings, $string)) {
+    $time: $time + ($durCharFwd * ($letter - 1));
+  } @else {
+    $time: $time +
+      ($durCharFwd * str-length(nth($strings, $string))) +
+      $durFullGap +
+      ($durCharBwd * ($letter - str-length(nth($strings, $string))));
+  }
+  @return ($time / $durTotal * 100 + $modifier) + '%';
+}
+$currentPercentage: 0;
+
+@keyframes typed {
+  @for $i from 1 through length($strings) {
+    @for $j from 1 through (str-length(nth($strings, $i)) * 2) {
+      @if $j < str-length(nth($strings, $i)) * 2 {
+        // not last character deleted
+        #{percent($i, $j, 0)},
+        #{percent($i, $j+1, -0.001)} {
+          @if $j <= str-length(nth($strings, $i)) {
+            content: quote(#{str_slice(nth($strings, $i), 1, $j)});
+          } @else {
+            content: quote(
+              #{str_slice(
+                  nth($strings, $i),
+                  1,
+                  str-length(nth($strings, $i)) -
+                    ($j - str-length(nth($strings, $i)))
+                )}
+            );
+          }
+        }
+      } @else {
+        @if $i < length($strings) {
+          // not last string
+          #{percent($i, $j, 0)},
+          #{percent($i+1, 1, -0.001)} {
+            content: '​'; // zero-width space to retain element height
+          }
+        } @else {
+          // last string
+          #{percent($i, $j, 0)},
+          100% {
+            content: '​'; // zero-width space to retain element height
+          }
+        }
+      }
+    }
+  }
+}
+@keyframes beam-blink {
+  75% {
+    border-color: transparent;
+  }
+}
+* {
+  backface-visibility: hidden;
+}
+html,
+body {
+  height: 40%;
+}
+.words {
+  height: 41%;
+  position: relative;
+  width: 64%;
+  display: flex;
+  align-items: center;
+  margin-left: 156px;
+  margin-top: 207px;
+  justify-content: center;
+  background-color: #000;
+  background-image: radial-gradient(rgba(#fff, 0.125), rgba(#fff, 0)),
+    linear-gradient(to bottom, #000, #000 2px, #111 3px);
+  background-repeat: repeat-y;
+  background-position: center center;
+  background-size: cover, 100% 3px;
+  font-size: calc(10px + 2vw);
+  font-family: 'VT323', monospace, sans-serif;
+  color: #3f3; // hacker green
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  &::after {
+    content: '​';
+    position: relative;
+    top: -13px;
+    @media (max-width: 575px) {
+      top: -33px;
+    }
+    display: inline-block;
+    padding-right: 3px;
+    padding-right: calc(3px + 0.1vw);
+    border-right: 10px solid rgba(#3f3, 0.75);
+    border-right: calc(1.1vw + 4px) solid rgba(#3f3, 0.75);
+    text-shadow: 0 0 5px rgba(51, 255, 51, 0.75);
+    white-space: nowrap;
+    animation: typed #{$durTotal + 's'} linear 1s infinite,
+      beam-blink 1s infinite;
+  }
+}
+
 section.article1:first-child {
   background-image: url('./src/imgs/bg.png');
+
   // position: relative;
   // z-index: -2;
   // width: 100%;
@@ -93,17 +226,23 @@ section.article1:first-child {
 }
 
 section.article2:nth-child(2) {
-  // background-image: url('./src/imgs/kathyson.png');
-  // position: absolute;
-  // z-index: 3;
+  color: #000000;
   font-size: 13px;
-  img {
-    margin-left: 442px;
-  }
 }
 
-section:nth-child(3) {
-  background-image: url('https://source.unsplash.com/O6vaYviRDoo/1920x1080');
+.imgBox {
+  border: 1px solid #696363;
+  height: 360px;
+  width: auto;
+  border-radius: 100%;
+  margin-top: -293px;
+  margin-left: 637px;
+  position: relative;
+  box-shadow: #4d4848 6px 10px 15px;
+}
+
+section.article3:nth-child(3) {
+  display: flex;
 }
 
 section:nth-child(4) {
@@ -121,10 +260,8 @@ section:nth-child(4) {
 }
 
 #indicator > div {
-  background-color: rgb(21, 127, 214);
   width: 10px;
   height: 10px;
-  border-radius: 5px;
   margin: 10px;
   cursor: pointer;
 }
@@ -262,4 +399,45 @@ section:nth-child(4) {
   20% {
     transform: translateX(-20px);
   }
+  100% {
+    transform: translateX(20px);
+  }
+}
+
+//FONT
+.article2 h2 {
+  color: #ac3f63;
+  font-family: 'Great Vibes', cursive;
+  font-size: 30px;
+  line-height: 160px;
+  font-weight: normal;
+  margin-bottom: -258px;
+  margin-top: 113px;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+}
+
+.about p {
+  color: #7a7c7f;
+  font-size: 18px;
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  text-shadow: 0 1px 1px #fff;
+  padding-top: 44px;
+  width: 434px;
+  margin-left: 63px;
+}
+
+.card-text {
+  font-size: 20px;
+}
+.card-title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+button {
+  display: inline-block;
+  margin: auto;
 }

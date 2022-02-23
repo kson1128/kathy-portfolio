@@ -38,12 +38,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   fps.slides.forEach(function (slide, index) {
     let slideIndicator = document.createElement('div');
+    slideIndicator.innerText = '💚';
+    console.log('slideIndicator', slideIndicator);
     slideIndicator.onclick = function () {
       fps.goToSlide(index);
     };
     if (index === fps.currentSlide) {
       slideIndicator.className = 'active';
     }
+
     indicator.appendChild(slideIndicator);
     slideIndicators.push(slideIndicator);
   });
