@@ -2,7 +2,7 @@
 @import '~mdb-ui-kit/css/mdb.min.css';
 
 $color-white: #fffbfa;
-$color-black: #000000;
+$color-black: #1d5139;
 
 * {
   box-sizing: border-box;
@@ -69,17 +69,11 @@ li {
 }
 
 body {
-  // display: flex;
-  // flex-direction: column;
-  // flex: 5;
   position: relative;
-  // margin: 0px;
-  // z-index: -1;
 }
+
 div#wrap {
   position: relative;
-  // overflow: hidden;
-  // z-index: -2;
 }
 
 section {
@@ -186,16 +180,11 @@ body {
   height: 40%;
 }
 .words {
-  // position: absolute;
-  // width: 100%;
   display: flex;
   align-items: center;
   margin-left: 43px;
   margin-top: 240px;
   justify-content: center;
-  // background-color: #000;
-  // background-image: radial-gradient(rgba(#fff, 0.125), rgba(#fff, 0)),
-  // linear-gradient(to bottom, #000, #000 2px, #111 3px);
   background-repeat: repeat-y;
   background-position: center center;
   background-size: cover, 100% 3px;
@@ -227,15 +216,7 @@ body {
 
 section.article1:first-child {
   background-image: url('./src/imgs/bg.png');
-
-  // position: relative;
-  // z-index: -9;
-  // width: 100%;
-  // text-transform: uppercase;
   color: rgba(55, 22, 240, 0.8);
-  // cursor: pointer;
-  // pointer-events: none;
-  // position: relative;
 }
 // //FLOATING TEXT
 
@@ -246,19 +227,19 @@ section.article1:first-child {
   align-items: center;
   height: 150px;
   width: 65%;
-  color: rgb(41, 39, 39);
+  color: #1d5139;
   font-family: 'serif', Times, serif;
   text-align: center;
   font-size: 55px;
-
-  // bottom: 613px;
 }
 
 section.article2:nth-child(2) {
   background-image: url('./src/imgs/bmtn.png');
-  background-position-y: 0px;
-  color: #000000;
-  font-size: 13px;
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position-y: -18px;
+  color: #1d5139;
+  font-size: 24px;
 }
 
 .imgBox {
@@ -272,8 +253,10 @@ section.article2:nth-child(2) {
   box-shadow: #4d4848 6px 10px 15px;
 }
 
-section.article3:nth-child(3) {
+section#article3:nth-child(3) {
   display: flex;
+  background: rgb(230,250,255);
+background: linear-gradient(180deg, rgba(230,250,255,0.6741071428571428) 0%, rgba(155,222,237,0.8337710084033614) 100%);
 }
 
 section#article4:nth-child(4) {
@@ -458,7 +441,7 @@ section#article4:nth-child(4) {
 }
 
 .about p {
-  color: #7a7c7f;
+  color: #1d5139;
   font-size: 18px;
   font-family: 'Libre Baskerville', serif;
   text-align: center;
