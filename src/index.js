@@ -60,4 +60,11 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   };
+
+  fps.slides.forEach(function (slide, index) {
+    let menu = document.getElementsByClassName('menu')[0];
+    menu.onclick = function () {
+      fps.goToSlide(index);
+    };
+  });
 });
