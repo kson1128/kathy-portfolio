@@ -34,12 +34,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
   let indicator = document.createElement('div');
   indicator.id = 'indicator';
+
   let slideIndicators = [];
 
   fps.slides.forEach(function (slide, index) {
     let slideIndicator = document.createElement('div');
+
     slideIndicator.innerText = '💚';
-    console.log('slideIndicator', slideIndicator);
+
     slideIndicator.onclick = function () {
       fps.goToSlide(index);
     };
@@ -50,20 +52,40 @@ document.addEventListener('DOMContentLoaded', function () {
     indicator.appendChild(slideIndicator);
     slideIndicators.push(slideIndicator);
   });
-  document.body.appendChild(indicator);
-  fps.onslide = function () {
-    slideIndicators.forEach(function (slideIndicator, index) {
-      if (index === fps.currentSlide) {
-        slideIndicator.className = 'active';
-      } else {
-        slideIndicator.className = '';
-      }
-    });
-  };
 
-  fps.slides.forEach(function (slide, index) {
-    let menu = document.getElementsByClassName('menu')[0];
-    menu.onclick = function () {
+  document.body.appendChild(indicator);
+  // console.log(
+  //   'slide-',
+  //   (fps.onslide = function () {
+  //     slideIndicators.forEach(function (slideIndicator, index) {
+  //       if (index === fps.currentSlide) {
+  //         slideIndicator.className = 'active';
+  //       } else {
+  //         slideIndicator.className = '';
+  //       }
+  //     });
+  //   })
+  // );
+
+  // fps.slides.forEach(function (slide, index) {
+  //   let menu = document.getElementsByClassName('menu')[0];
+  //   menu.onclick = function () {
+  //     fps.goToSlide(index);
+  //   };
+  // });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  let wrap = document.getElementById('wrap');
+  let fps = new FullPageScroll(wrap);
+
+  let indicators = document.getElementsByClassName('item');
+  let menuItems = Array.from(indicators);
+
+  menuItems.forEach(function (slide, index) {
+    console.log('slide', slide);
+    slide.onclick = function () {
+      console.log('idx-', index);
       fps.goToSlide(index);
     };
   });
