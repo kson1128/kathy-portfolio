@@ -44,6 +44,50 @@ li {
   transition: 1s box-shadow;
 }
 
+
+
+h1{
+  font-family:Permanent Marker;
+}
+#red{
+  color:red;
+}
+#topNote{
+  background: linear-gradient( rgba(190, 190, 0, 0.05), rgba(190, 190, 0, 0.05));
+  height:20px;
+}
+#displayBox{
+  border-color:rgba(200,220,0,0.1);
+  border-style:solid;
+  border-width:1px;
+  min-height:200px;
+  max-width:28%;
+  // margin:0 auto;
+  margin-left: 23em;
+  margin-top: 3em;
+  padding-bottom:35px;
+  padding-left:0px;
+  padding-right:0px;
+  background-color:lightyellow;
+  border-radius: 2px 2px 2px 2px;
+  font-family:Noticia Text,Sans-Serif,Monospace;
+  -webkit-box-shadow: 2px 21px 33px -8px rgba(0,0,0,0.2);
+-moz-box-shadow: 2px 21px 33px -8px rgba(0,0,0,0.2);
+box-shadow: 2px 21px 33px -8px rgba(0,0,0,0.2);
+    z-index:2;
+}
+
+#quote{
+  padding-left:30px;
+  font-size:15px;
+  font-style:italic;
+}
+#person{
+  font-style:italic;
+  padding-right:25%;
+}
+
+
 //CONTAINER:
 
 .img-fluid.nebula {

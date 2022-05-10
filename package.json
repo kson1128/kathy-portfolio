@@ -34,9 +34,8 @@
     "mdb-ui-kit": "^3.10.2",
     "script-loader": "^0.7.2"
   },
-
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/fabeat/responsive-fullpage-scroll.git"
-    }
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabeat/responsive-fullpage-scroll.git"
+  }
 }
