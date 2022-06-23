@@ -83,6 +83,25 @@ let quotes = [
   ],
 ];
 
+let iconPics = [
+  './src/imgs/javascript.png',
+  './src/imgs/html.png',
+  './src/imgs/css.png',
+  './src/imgs/bootstrap.png',
+  './src/imgs/tailwind.png',
+  './src/imgs/materialui.png',
+  './src/imgs/react.png',
+  './src/imgs/redux.png',
+  './src/imgs/node.png',
+  './src/imgs/expressjs.png',
+  './src/imgs/electron.png',
+  './src/imgs/viroreact.png',
+  './src/imgs/postgresql.png',
+  './src/imgs/GitHub.png',
+  './src/imgs/git.png',
+  './src/imgs/heroku.png',
+];
+
 document.addEventListener('DOMContentLoaded', function () {
   let random = Math.floor(Math.random() * quotes.length);
 
@@ -103,6 +122,21 @@ document.addEventListener('DOMContentLoaded', function () {
     const quoteElement = document.getElementById('quote');
     quoteElement.innerHTML = quote + '\n' + author;
   });
+
+  function displaySkillsIcon() {
+    const icons = document.createElement('div');
+    icons.className = 'iconPics';
+    Array.from(iconPics).forEach(eachIcon => {
+      let skill = `<img src="${eachIcon}" />`;
+      icons.innerHTML += skill;
+
+      let skills = document.getElementById('technical-skills');
+      skills.appendChild(icons);
+      console.log(icons);
+    });
+  }
+
+  displaySkillsIcon();
 });
 
 async function typeSentence(sentence, eleRef, delay = 100) {

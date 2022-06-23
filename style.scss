@@ -8,6 +8,14 @@ $color-black: #1d5139;
   box-sizing: border-box;
 }
 
+html {
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 ul {
   top: 50px;
   list-style: none;
@@ -122,14 +130,11 @@ font-size: 16px;
 --card-img-height: 200px;
 }
 .card-container {
-width: auto;
-height: 100vh;
-display: flex;
-flex-flow: row;
-justify-content: center;
-margin: 21vh;
-margin-left: auto;
-transition: all 200ms ease-in-out;
+  display: flex;
+  transition: all 200ms ease-in-out;
+  position: absolute;
+  top: 52%;
+  left: 40%;
 }
 
 .card {
@@ -189,18 +194,18 @@ transition: all 300ms ease-in-out;
       background: #505f79;
       color: #fff;
 
-      &.tag-news {
-        background: #36b37e;
-      }
+      // &.tag-news {
+      //   background: #36b37e;
+      // }
 
-      &.tag-deals {
-        background: #ffab00;
-      }
+      // &.tag-deals {
+      //   background: #ffab00;
+      // }
 
-      &.tag-politics {
-        width: 71px;
-        background: #ff5630;
-      }
+      // &.tag-politics {
+      //   width: 71px;
+      //   background: #ff5630;
+      // }
     }
   }
 
@@ -440,19 +445,20 @@ section.article1:first-child {
 section.article2:nth-child(2) {
   background-image: url('./src/imgs/bmtn.png');
   background-repeat: no-repeat;
-  background-size:auto;
-  background-position-y: -22vh;
+  background-position-y: 7%;
+  background-size: initial;
+  // min-width:114%;
   color: #1d5139;
   font-size: 24px;
 }
 
 .imgBox {
   border: 1px solid #696363;
-  height: 360px;
-  width: auto;
+  // height: 54%;
+  // width: auto;
   border-radius: 100%;
-  margin-top: -55vh;
-  margin-left: 97vh;
+  margin-top: -38%;
+  margin-left: 62%;
   position: relative;
   box-shadow: #4d4848 6px 10px 15px;
 }
@@ -466,6 +472,36 @@ section#article3:nth-child(3) {
     rgba(155, 222, 237, 0.8337710084033614) 100%
   );
 }
+
+
+div#technical-projects {
+  margin-right: -54%;
+  height: min-content;
+  margin-top:-5%;
+}
+
+ #technical-skills  {
+  display: flex;
+  position: absolute;
+  height: auto;
+  top: 64%;
+  left: 22%;
+  width: 63%;
+}
+
+#technical-skills h2 {
+  position: absolute;
+  top:-25%;
+  left: 33%;
+}
+
+#technical-skills img {
+  float: left;
+  margin: 15px 15px;
+}
+
+
+
 
 section#article4:nth-child(4) {
 }
@@ -623,13 +659,12 @@ body {
 }
 
 .about p {
-  color: #1d5139;
-  font-size: 18px;
-  font-family: 'Libre Baskerville', serif;
+  color: #255c42;
+  font-size: 19px;
+  font-family: Georgia, 'Times New Roman', Times, serif, serif;
   text-align: center;
   text-shadow: 0 1px 1px #fff;
-  padding-top: 44px;
-  width: 434px;
+  width: 40%;
   position: relative;
   margin-left: 13%;
 }
@@ -803,7 +838,10 @@ article {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 70%;
+    width: 28%;
+    position: absolute;
+    bottom: 29px;
+    left: 435px;
   }
 }
 
@@ -869,3 +907,6 @@ article {
     }
   }
 }
+
+
+
