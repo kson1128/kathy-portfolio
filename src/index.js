@@ -1,9 +1,6 @@
 import '../style.scss';
 import * as scroll from '../scroll';
-// import emailjs from '../emailjs';
 import sendForm from '../emailjs';
-
-import KEY from '/Users/kathy/Desktop/kathy-portfolio/.env';
 
 let quotes = [
   [
