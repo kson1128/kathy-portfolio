@@ -1,5 +1,8 @@
+
 @import '~bootstrap/scss/bootstrap';
 @import '~mdb-ui-kit/css/mdb.min.css';
+@import url("https://fonts.googleapis.com/css?family=Saira+Semi+Condensed&display=swap");
+
 
 $color-white: #fffbfa;
 $color-black: #1d5139;
@@ -193,19 +196,6 @@ transition: all 300ms ease-in-out;
       letter-spacing: 1px;
       background: #505f79;
       color: #fff;
-
-      // &.tag-news {
-      //   background: #36b37e;
-      // }
-
-      // &.tag-deals {
-      //   background: #ffab00;
-      // }
-
-      // &.tag-politics {
-      //   width: 71px;
-      //   background: #ff5630;
-      // }
     }
   }
 
@@ -477,22 +467,22 @@ section#article3:nth-child(3) {
 div#technical-projects {
   margin-right: -54%;
   height: min-content;
-  margin-top:-5%;
+  margin-top: -4%;
 }
 
  #technical-skills  {
   display: flex;
   position: absolute;
   height: auto;
-  top: 64%;
+  top: 67%;
   left: 22%;
-  width: 63%;
+  width: 71%;
 }
 
 #technical-skills h2 {
   position: absolute;
   top:-25%;
-  left: 33%;
+  left: 25%;
 }
 
 #technical-skills img {
@@ -909,4 +899,105 @@ article {
 }
 
 
+* {
+  font-family: "Saira Semi Condensed", sans-serif;
+  transition: all 0.5s ease;
+}
 
+body {
+  background: #dfdfdf;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  padding: 0 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+form {
+  width: 400px;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+}
+form div, form label, form input, form textarea {
+  width: 100%;
+}
+
+.field:nth-of-type(2) {
+  margin: 16px 0;
+}
+
+label, input, textarea {
+  padding: 8px;
+}
+
+label, [placeholder] {
+  color: #555;
+}
+
+label i {
+  margin: 0 10px 0 0;
+}
+
+.field:focus-within label {
+  color: #000;
+  letter-spacing: 2px;
+}
+
+input, textarea {
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 8px 6px -6px #555;
+}
+input:focus, textarea:focus {
+  background: white;
+  box-shadow: none;
+}
+
+textarea {
+  resize: none;
+}
+textarea::-webkit-scrollbar {
+  width: 0;
+}
+
+button {
+  background: #2f4ad0;
+  margin: 16px 0 50px 0;
+  padding: 8px 16px;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 0 8px 6px -6px #555;
+}
+button:hover {
+  letter-spacing: 2px;
+  box-shadow: none;
+}
+
+.social-media {
+  display: flex;
+  position: absolute;
+  left: 22%;
+  bottom: 1.5%;
+}
+
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 425px) {
+  form {
+    width: 100%;
+  }
+}

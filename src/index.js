@@ -1,5 +1,9 @@
 import '../style.scss';
 import * as scroll from '../scroll';
+// import emailjs from '../emailjs';
+import sendForm from '../emailjs';
+
+import KEY from '/Users/kathy/Desktop/kathy-portfolio/.env';
 
 let quotes = [
   [
@@ -137,6 +141,41 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   displaySkillsIcon();
+
+  (function () {
+    // console.log(emailjs);
+    emailjs.init(KEY);
+  })();
+
+  window.onload = function () {
+    document
+      .getElementById('contact-form')
+      .addEventListener('submit', function (event) {
+        event.preventDefault();
+        // generate a five digit number for the contact_number variable
+        // this.contact_number.value = (Math.random() * 100000) | 0;
+        // these IDs from the previous steps
+        // emailjs.sendForm('contact_service', 'contact_form', this).then(
+        //   function () {
+        //     console.log('SUCCESS!');
+        //   },
+        //   function (error) {
+        //     console.log('FAILED...', error);
+        //   }
+        // );
+
+        emailjs
+          .sendForm('service_n31wb6h', 'template_9tdszj7', '#contact-form')
+          .then(
+            function (response) {
+              console.log('SUCCESS!', response.status, response.text);
+            },
+            function (error) {
+              console.log('FAILED...', error);
+            }
+          );
+      });
+  };
 });
 
 async function typeSentence(sentence, eleRef, delay = 100) {
