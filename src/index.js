@@ -1,6 +1,7 @@
 import '../style.scss';
 import * as scroll from '../scroll';
 import sendForm from '../emailjs';
+import KEY from '../.env';
 
 let quotes = [
   [
@@ -75,10 +76,6 @@ let quotes = [
   ],
   ['The only way to do great work is to love what you do.', '—Steve Jobs'],
   ['Change your thoughts and you change your world.', '—Norman Vincent Peale'],
-  [
-    'The question isn’t who is going to let me; it’s who is going to stop me.',
-    ' —Ayn Rand',
-  ],
 ];
 
 let iconPics = [
@@ -137,7 +134,6 @@ document.addEventListener('DOMContentLoaded', function () {
   displaySkillsIcon();
 
   (function () {
-    // console.log(emailjs);
     emailjs.init(KEY);
   })();
 
