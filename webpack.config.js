@@ -9,14 +9,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 }, {});
 module.exports = {
   plugins: [new webpack.DefinePlugin(envKeys)],
-  //   new webpack.DefinePlugin({
-  //     'process.env': JSON.stringify(dotenv.parsed),
-  //     'process.env.NODE_ENV': JSON.stringify(
-  //       isDevelopment ? 'development' : 'production'
-  //     ),
-  //   }),
-  // ].filter(Boolean),
-  mode: 'development',
+  mode: 'production',
   entry: './index.js',
   output: {
     path: __dirname,
@@ -29,7 +22,7 @@ module.exports = {
     // host: '0.0.0.0',
     port: 8080, // port for dev server
   },
-  watch: process.env.NODE_ENV === 'development',
+  watch: process.env.NODE_ENV === 'production',
   module: {
     rules: [
       {
