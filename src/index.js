@@ -1,7 +1,6 @@
 import '../style.scss';
 import * as scroll from '../scroll';
 import sendForm from '../emailjs';
-import KEY from '../.env';
 
 let quotes = [
   [
@@ -14,10 +13,6 @@ let quotes = [
   ][
     ('Whether you think you can or you think you can’t, you’re right.',
     '—Henry Ford')
-  ],
-  [
-    'Perfection is not attainable, but if we chase perfection we can catch excellence.',
-    '—Vince Lombardi',
   ],
   [
     'Life is 10% what happens to me and 90% of how I react to it.',
