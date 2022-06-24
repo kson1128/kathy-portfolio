@@ -127,7 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   displaySkillsIcon();
   const THE_KEY = process.env.KEY;
-  // console.log('key', THE_KEY);
+
   (function () {
     emailjs.init(THE_KEY);
   })();
