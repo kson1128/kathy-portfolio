@@ -26,10 +26,7 @@ let quotes = [
     'If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.',
     '—Oprah Winfrey',
   ],
-  [
-    'Remember no one can make you feel inferior without your consent. ',
-    '—Eleanor Roosevelt',
-  ],
+
   [
     'I can’t change the direction of the wind, but I can adjust my sails to always reach my destination. ',
     '—Jimmy Dean',
