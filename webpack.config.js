@@ -10,7 +10,7 @@ const envKeys = Object.keys(env).reduce((prev, next) => {
 module.exports = {
   plugins: [new webpack.DefinePlugin(envKeys)],
 
-  mode: 'production',
+  mode: 'development',
   entry: './index.js',
   output: {
     path: __dirname,
