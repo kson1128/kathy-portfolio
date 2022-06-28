@@ -1,8 +1,6 @@
 const webpack = require('webpack');
-const path = require('path');
 require('dotenv').config({ path: './.env' });
 const TerserPlugin = require('terser-webpack-plugin');
-
 const ENVIRONMENT = process.env.NODE_ENV;
 
 module.exports = {
