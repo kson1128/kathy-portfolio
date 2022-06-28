@@ -1,17 +1,17 @@
-const path = require('path');
 const webpack = require('webpack');
-const dotenv = require('dotenv');
+const path = require('path');
+require('dotenv').config({ path: './.env' });
+const TerserPlugin = require('terser-webpack-plugin');
 
-const env = dotenv.config().parsed;
-const envKeys = Object.keys(null || env).reduce((prev, next) => {
-  prev[`process.env.${next}`] = JSON.stringify(env[next]);
-  return prev;
-}, {});
+const ENVIRONMENT = process.env.NODE_ENV;
+
 module.exports = {
-  plugins: [new webpack.DefinePlugin(envKeys)],
-
-  mode: 'development',
-  entry: './index.js',
+  mode: ENVIRONMENT,
+  performance: {
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
+  },
+  entry: './src/index.js',
   output: {
     path: __dirname,
     publicPath: '/',
@@ -23,7 +23,7 @@ module.exports = {
     // host: '0.0.0.0',
     port: 8080, // port for dev server
   },
-  watch: process.env.NODE_ENV === 'development',
+  // watch: process.env.NODE_ENV === 'production',
   module: {
     rules: [
       {
@@ -31,5 +31,14 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
     ],
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': JSON.stringify(process.env),
+    }),
+  ],
+  optimization: {
+    minimize: true,
+    minimizer: [new TerserPlugin()],
   },
 };

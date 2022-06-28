@@ -1,6 +1,6 @@
-import '/Users/kathy/Desktop/kathy-portfolio/style.scss';
-import * as scroll from './scroll';
-import sendForm from './emailjs';
+import '../style.scss';
+import * as scroll from '../scroll';
+import sendForm from '../emailjs';
 
 let quotes = [
   [
@@ -126,9 +126,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   displaySkillsIcon();
-  const THE_KEY = process.env.KEY.slice(0, process.env.KEY.length - 1);
+
   (function () {
-    emailjs.init(THE_KEY);
+    console.log('key---', process.env.NODE_ENV);
+    emailjs.init(process.env.KEY);
   })();
 
   window.onload = function () {
