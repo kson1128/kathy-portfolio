@@ -428,8 +428,7 @@ section {
 }
 
 $strings: (
-  'Hi, my name is Kathy!' ' I am a Software Engineer'
-    'with a passion for creating.'
+  'Hi, my name is Kathy! ' 'I am a Full Stack Engineer''with a passion for creating things.'
 );
 
 $durCharFwd: 0.1;
@@ -513,13 +512,11 @@ $currentPercentage: 0;
     border-color: transparent;
   }
 }
-* {
-  backface-visibility: hidden;
-}
-// html,
-// body {
-//   height: 40%;
-// }
+
+
+
+
+
 .words {
   display: flex;
   align-items: center;
@@ -540,15 +537,29 @@ $currentPercentage: 0;
     top: 389px;
     margin: -25px -24px;
     right: 550px;
-    @media (max-width: 575px) {
-      position: fixed;
-      top: 229px;
-    }
+    // @media screen and (max-width: 575px) {
+    //   background-repeat: repeat;
+    //   position: fixed;
+    //   top: 229px;
+    // }
+    @media only screen and (min-width: 960px) {
+      /* styles for browsers larger than 960px; */
+      position: absolute;
+      top: 15%;
+      right:36%;
+  }
+
+  @media only screen and (max-width: 960px) {
+    /* styles for browsers smaller than 960px; */
+    position: absolute;
+    top: 15%;
+    right: 35%;
+}
     display: inline-block;
     padding-right: 3px;
     padding-right: calc(2px + 0.1vw);
     border-right: 10px solid rgba(#3f3, 0.75);
-    border-right: calc(1.1vw + 4px) solid rgba(#3f3, 0.75);
+    border-right: calc(1.1vw - 15px) solid rgba(#3f3, 0.75);
     text-shadow: 0 0 5px rgba(51, 255, 51, 0.75);
     white-space: nowrap;
     animation: typed #{$durTotal + 's'} linear 1s infinite,
@@ -590,15 +601,137 @@ section.article2:nth-child(2) {
 }
 
 .imgBox {
-  border: 1px solid #696363;
+  border: 1px solid #dedbdb;
   // height: 54%;
   // width: auto;
-  border-radius: 100%;
-  margin-top: -38%;
-  margin-left: 62%;
+  top: -55%;
+  left: 26%;
+  border-radius: 3%;
   position: relative;
-  box-shadow: #4d4848 6px 10px 15px;
+  box-shadow: #746c6c 6px 10px 15px;
 }
+.section {
+  padding: 100px 0;
+  position: relative;
+}
+.gray-bg {
+  background-color: #f5f5f5;
+}
+img {
+  max-width: 100%;
+}
+img {
+  vertical-align: middle;
+  border-style: none;
+}
+/* About Me
+---------------------*/
+.about-text h3 {
+font-size: 45px;
+font-weight: 700;
+margin: 0 0 6px;
+}
+@media (max-width: 767px) {
+.about-text h3 {
+  font-size: 35px;
+}
+}
+.about-text h6 {
+font-weight: 600;
+margin-bottom: 15px;
+}
+@media (max-width: 767px) {
+.about-text h6 {
+  font-size: 18px;
+}
+}
+.about-text p {
+font-size: 18px;
+max-width: 450px;
+}
+.about-text p mark {
+font-weight: 600;
+color: #20247b;
+}
+
+.about-list {
+padding-top: 10px;
+}
+.about-list .media {
+padding: 5px 0;
+}
+.about-list label {
+color: #20247b;
+font-weight: 600;
+width: 88px;
+margin: 0;
+position: relative;
+}
+.about-list label:after {
+content: "";
+position: absolute;
+top: 0;
+bottom: 0;
+right: 11px;
+width: 1px;
+height: 12px;
+background: #20247b;
+-moz-transform: rotate(15deg);
+-o-transform: rotate(15deg);
+-ms-transform: rotate(15deg);
+-webkit-transform: rotate(15deg);
+transform: rotate(15deg);
+margin: auto;
+opacity: 0.5;
+}
+.about-list p {
+margin: 0;
+font-size: 15px;
+}
+
+@media (max-width: 991px) {
+.about-avatar {
+  margin-top: 30px;
+}
+}
+
+.about-section .counter {
+padding: 18px;
+background: #ffffff;
+border-radius: 10px;
+margin-top: 1%;
+height: max-content;
+box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
+}
+.about-section .counter .count-data {
+margin-top: 10px;
+margin-bottom: 10px;
+}
+.about-section .counter .count {
+font-weight: 700;
+color: #20247b;
+margin: 0 0 5px;
+}
+.about-section .counter p {
+font-weight: 600;
+margin: 0;
+}
+mark {
+  background-image: linear-gradient(rgba(252, 83, 86, 0.6), rgba(252, 83, 86, 0.6));
+  background-size: 100% 3px;
+  background-repeat: no-repeat;
+  background-position: 0 bottom;
+  background-color: transparent;
+  padding: 0;
+  color: currentColor;
+}
+.theme-color {
+  color: #fc5356;
+}
+.dark-color {
+  color: #20247b;
+}
+
 
 section#article3:nth-child(3) {
   display: flex;
@@ -619,22 +752,32 @@ div#technical-projects {
 
  #technical-skills  {
   display: flex;
-  position: absolute;
-  height: auto;
-  top: 67%;
-  left: 22%;
-  width: 71%;
+  flex-wrap: wrap;
+  position: relative;
+  width: 88%;
+}
+
+.tech-skills-row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 #technical-skills h2 {
-  position: absolute;
-  top:-25%;
-  left: 25%;
+  display: flex;
+  align-items: center;
+  height: auto;
+  // position: relative;
+  margin-inline: auto;
+  font-size: 1.8rem;
 }
 
 #technical-skills img {
+  object-fit: cover;
+  height: 40px;
   float: left;
-  margin: 15px 15px;
+  margin: 12px 12px;
 }
 
 
@@ -782,29 +925,32 @@ body {
   }
 }
 
+.aboutMe {
+  margin-top: 1%;
+}
 //FONT
-.article2 h2 {
-  color: #ac3f63;
-  font-family: 'Great Vibes', cursive;
-  font-size: 30px;
-  line-height: 160px;
-  font-weight: normal;
-  margin-bottom: -258px;
-  margin-top: 113px;
-  text-align: center;
-  text-shadow: 0 1px 1px #fff;
-}
+// .article2 h2 {
+//   color: #ac3f63;
+//   font-family: 'Great Vibes', cursive;
+//   font-size: 30px;
+//   line-height: 160px;
+//   font-weight: normal;
+//   margin-bottom: -258px;
+//   margin-top: 113px;
+//   text-align: center;
+//   text-shadow: 0 1px 1px #fff;
+// }
 
-.about p {
-  color: #255c42;
-  font-size: 19px;
-  font-family: Georgia, 'Times New Roman', Times, serif, serif;
-  text-align: center;
-  text-shadow: 0 1px 1px #fff;
-  width: 40%;
-  position: relative;
-  margin-left: 13%;
-}
+// .about p {
+//   color: #255c42;
+//   font-size: 19px;
+//   font-family: Georgia, 'Times New Roman', Times, serif, serif;
+//   text-align: center;
+//   text-shadow: 0 1px 1px #fff;
+//   width: 40%;
+//   position: relative;
+//   margin-left: 13%;
+// }
 
 
 // FOLDING MENU//////

@@ -1,6 +1,7 @@
 import '../style.scss';
 import * as scroll from '../scroll';
 import sendForm from '../emailjs';
+import Swal from 'sweetalert2';
 
 let quotes = [
   [
@@ -8,19 +9,19 @@ let quotes = [
     '—Audrey Hepburn',
   ],
   [
-    'I’ve learned that people will forget what you said, people will forget what you did, but people will never forget how you made them feel.',
-    '—Maya Angelou',
+    'It does not matter how slowly you go as long as you do not stop.',
+    '—Confucius',
   ][
-    ('Whether you think you can or you think you can’t, you’re right.',
-    '—Henry Ford')
+    ('Success is not final; failure is not fatal: It is the courage to continue that counts.',
+    ' — Winston S. Churchill')
   ],
   [
     'Life is 10% what happens to me and 90% of how I react to it.',
     '—Charles Swindoll',
   ],
   [
-    'If you look at what you have in life, you’ll always have more. If you look at what you don’t have in life, you’ll never have enough.',
-    '—Oprah Winfrey',
+    'To know how much there is to know is the beginning of learning to live.',
+    ' —Dorothy West',
   ],
 
   [
@@ -29,45 +30,42 @@ let quotes = [
   ],
   ['Believe you can and you’re halfway there. ', '—Theodore Roosevelt'],
   [
-    'To handle yourself, use your head; to handle others, use your heart. ',
-    '—Eleanor Roosevelt',
+    'Coming together is a beginning. Keeping together is progress. Working together is success. ',
+    '— Henry Ford',
   ],
   [
-    'Too many of us are not living our dreams because we are living our fears. ',
-    '—Les Brown',
+    'Just one small positive thought in the morning can change your whole day.',
+    '— Dalai Lama',
   ],
-  ['Do or do not. There is no try. ', '—Yoda'],
   [
-    'Whatever the mind of man can conceive and believe, it can achieve. ',
-    '—Napoleon Hill',
+    'What you do speaks so loudly that I cannot hear what you say. ',
+    '—Ralph Waldo Emerson',
+  ],
+  [
+    'If you change the way you look at things, the things you look at change. ',
+    '— Wayne Dyer',
   ],
   [
     'Strive not to be a success, but rather to be of value. ',
     '—Albert Einstein',
   ],
-  [
-    'I am not a product of my circumstances. I am a product of my decisions.',
-    '—Stephen Covey',
-  ],
+  ['You carry the passport to your own happiness.', '—Diane von Furstenberg'],
   [
     'When everything seems to be going against you, remember that the airplane takes off against the wind, not with it.',
     '—Henry Ford',
   ],
+  ['If there is no struggle, there is no progress.', ' —Frederick Douglass'],
   [
-    'The most common way people give up their power is by thinking they don’t have any.',
-    ' —Alice Walker',
-  ],
-  [
-    'The most difficult thing is the decision to act, the rest is merely tenacity.',
-    '—Amelia Earhart',
+    'Keep your eyes on the stars, and your feet on the ground.',
+    '―Theodore Roosevelt',
   ],
   [
     'It is during our darkest moments that we must focus to see the light.',
     '—Aristotle Onassis',
   ],
   [
-    'Don’t judge each day by the harvest you reap but by the seeds that you plant.',
-    '—Robert Louis Stevenson',
+    'All you need is the plan, the road map, and the courage to press on to your destination.',
+    '—Earl Nightingale',
   ],
   ['The only way to do great work is to love what you do.', '—Steve Jobs'],
   ['Change your thoughts and you change your world.', '—Norman Vincent Peale'],
@@ -78,14 +76,13 @@ let iconPics = [
   './src/imgs/html.png',
   './src/imgs/css.png',
   './src/imgs/bootstrap.png',
-  './src/imgs/tailwind.png',
-  './src/imgs/materialui.png',
   './src/imgs/react.png',
   './src/imgs/redux.png',
-  './src/imgs/node.png',
+  './src/imgs/materialui.png',
+  './src/imgs/tailwind.png',
   './src/imgs/expressjs.png',
-  './src/imgs/electron.png',
-  './src/imgs/viroreact.png',
+  './src/imgs/node.png',
+  './src/imgs/sequelize.png',
   './src/imgs/postgresql.png',
   './src/imgs/GitHub.png',
   './src/imgs/git.png',
@@ -151,6 +148,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
   setDate();
 
+  let option = {
+    animation: true,
+    delay: 3000,
+  };
+  let btn = document.getElementById('toastbtn');
+  let element = document.getElementById('toastNotice');
+
+  // Create toast instance
+  var myToast = new bootstrap.Toast(element, option);
+
   (function () {
     emailjs.init(process.env.KEY);
   })();
@@ -160,28 +167,35 @@ document.addEventListener('DOMContentLoaded', function () {
       .getElementById('contact-form')
       .addEventListener('submit', function (event) {
         event.preventDefault();
-        // generate a five digit number for the contact_number variable
-        // this.contact_number.value = (Math.random() * 100000) | 0;
-        // these IDs from the previous steps
-        // emailjs.sendForm('contact_service', 'contact_form', this).then(
-        //   function () {
-        //     console.log('SUCCESS!');
+        emailjs
+          .sendForm('service_n31wb6h', 'template_9tdszj7', '#contact-form')
+          .then(
+            result => {
+              console.log(result.text);
+              Swal.fire({
+                icon: 'success',
+                title: 'Message sent successfully 😃',
+              });
+              document.getElementById('contact-form').reset();
+            },
+            error => {
+              console.log(error.text);
+              Swal.fire({
+                icon: 'error',
+                title: 'Something went wrong 😕',
+                text: error.text,
+              });
+            }
+          );
+        // .then(
+        //   function (response) {
+        //     console.log('SUCCESS!', response.status, response.text);
+        //     myToast.show();
         //   },
         //   function (error) {
         //     console.log('FAILED...', error);
         //   }
         // );
-
-        emailjs
-          .sendForm('service_n31wb6h', 'template_9tdszj7', '#contact-form')
-          .then(
-            function (response) {
-              console.log('SUCCESS!', response.status, response.text);
-            },
-            function (error) {
-              console.log('FAILED...', error);
-            }
-          );
       });
   };
 });
