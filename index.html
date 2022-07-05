@@ -39,6 +39,7 @@
   <body>
     <script type="text/javascript" src="./bundle.js"></script>
 
+
     <div id="wrap">
       <section class="article1">
         <div class="menu">
@@ -149,51 +150,119 @@
       </section>
       <!-- Section 3 -->
 
+      <div id="focus" class="m-8 focus-section">
       <section id="article3">
-        <div class="card-container">
-          <div id="technical-projects">
-            <h2>Technical Projects</h2>
-          </div>
+                <div id="tech-projects">
+                    <div class="container px-0">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="title-section">Technical Projects</h2>
+                            </div>
 
 
-          <div class="card card-1">
-            <div class="card-img"></div>
-            <a href="" class="card-link">
-              <div class="card-img-hovered"></div>
-            </a>
-            <div class="card-info">
-              <div class="card-about">
-                <!-- <a class="card-tag tag-news">Nebula</a> -->
-              </div>
-              <h1 class="card-title">Nebula Bakery</h1>
-            </div>
-          </div>
-          <div class="card card-2">
-            <div class="card-img"></div>
-            <a href="http://nebula-bakery.herokuapp.com/" class="card-link">
-              <div class="card-img-hovered"></div>
-            </a>
-            <div class="card-info">
-              <div class="card-about">
-                <!-- <a class="card-tag">Tagged</a> -->
-              </div>
-              <h1 class="card-title">Tagged</h1>
-            </div>
-          </div>
-          <div class="card card-3">
-            <div class="card-img"></div>
-            <a href="https://www.youtube.com/watch?v=ZnTJXJw4Izo" class="card-link">
-              <div class="card-img-hovered"></div>
-            </a>
-            <div class="card-info">
-              <div class="card-about">
-              </div>
-              <h1 class="card-title">Oh My Foodie</h1>
-            </div>
-          </div>
-        </div>
+                        </div>
+                    </div>
+                    <div class="row row-cols-1 row-cols-md-3 g-4">
+                        <div class="col">
+                            <div class="card h-100">
+                                <div class="card-image">
+                                    <div class="hover-text">
+                                        <img src"./src/imgs/Nebula.png" onError="this.onerror=null;this.src='./src/imgs/Nebula.png';" class="card-img-top" alt="Nebula Bakery">
 
-      </section>
+                                    </div>
+                                    <div class="image-overlay"></div>
+                                </div>
+                                <div class="card-body ">
+
+                                    <h3 class="card-title">Nebula Bakery</h3>
+                                    <div class="text-left my-2">
+
+                                    </div>
+                                    <p class="card-text">
+                                      An e-commerce marketplace for all kinds of baked goods. Whether you like cakes, cookies, pies, pastries, cupcakes,  or anything else, we've got you covered!  </br>
+ Visitors can sign up for an account, view, add/ edit, checkout as a subscriber or as a guest.
+
+Built with React, Redux, CSS, Webpack, Express, Sequelize, JWT, PostreSQL
+                                    </p>
+
+
+                                </div>
+
+                                <div class="card-footer py-3 position-absolute bottom-0 end-0">
+                                    <div class="card-footer__info">
+
+                                        <span >
+                                            <a class="text-uppercase read-more-1" href="#">View Live Site </a>
+                                        </span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card h-100">
+
+                                <div class="card-image">
+                                    <img src="./src/imgs/tagged.png" class="card-img-top" alt="tagged">
+                                    <div class="image-overlay"></div>
+                                </div>
+
+
+                                <div class="card-body">
+                                    <h3 class="card-title">< Tagged /></h3>
+                                    <div class="text-left my-2">
+
+                                    </div>
+                                    <p class="card-text">Tagged is a fun and safe way to paint on any surface and share your artwork using augmented reality technology. Create an account, log in, explore other user's graffiti art and save new graffiti in an app gallery with this secure React Native app. Using AWS S-3 to archive graffiti artwork allows for easier uploading and greater scalability. Built with React Native, Redux, Express, PostgreSQL, AWS S3, ViroReact, Sequelize and JWT. </p>
+
+                                </div>
+                                <div class="card-footer py-3 position-absolute bottom-0 end-0">
+                                  <div class="card-footer__info">
+
+                                      <span >
+                                          <a class="text-uppercase read-more-1" href="#">View Live Site </a>
+                                      </span>
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                          <div class=" card h-100">
+                              <div class="card-image">
+                                <img src="./src/imgs/foodie.png" class="foodie card-img-top"
+                                id="foodie"
+                                alt="tagged">
+                                <h5>Coming Soon</h5>
+
+                              </div>
+
+
+                              <div class="card-body">
+                                  <h3 class="card-title">Oh My Foodie</h3>
+                                  <div class="text-left my-2">
+
+                                  </div>
+                                  <p class="card-text"> Coming soon! </p>
+
+                              </div>
+                              <div class="card-footer py-3 position-absolute bottom-0 end-0">
+                                <div class="card-footer__info">
+
+                                    <span >
+                                        <a class="text-uppercase read-more-1" href="#">View Live Site </a>
+                                    </span>
+                                </div>
+                            </div>
+                          </div>
+                      </div>
+
+                    </div>
+                </div>
+
+
+
+            </section>
+          </div>
 
       <section id="article4">
         <h2 id="contact">Let's Connect</h2>
@@ -203,13 +272,13 @@
             <label for="user_name">
               <i class="far fa-user"></i>Your Name
             </label>
-            <input name="user_name" type="text" placeholder="e.g. john doe" required>
+            <input name="user_name" type="text" placeholder="name"required>
           </div>
           <div class="field" tabindex="2">
             <label for="user_email">
               <i class="far fa-envelope"></i>Your Email
             </label>
-            <input name="user_email" type="text" placeholder="email@domain.com" required>
+            <input name="user_email" type="email" placeholder="e-mail" id="user_email"required>
           </div>
           <div class="field" tabindex="3">
             <label for="message">

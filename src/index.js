@@ -90,6 +90,23 @@ let iconPics = [
 ];
 
 document.addEventListener('DOMContentLoaded', function () {
+  function darkOrLightToggle() {
+    let element = document.getElementById('focus');
+    console.log('element', element);
+    element.classList.toggle('dark-mode');
+
+    let x = document.getElementById('btnValue');
+    if (x.innerHTML === 'Dark mode') {
+      x.innerHTML = 'Light mode';
+      x.classList.remove('btn-dark');
+      x.classList.toggle('btn-light');
+    } else {
+      x.innerHTML = 'Dark mode';
+      x.classList.remove('btn-light');
+      x.classList.toggle('btn-dark');
+    }
+  }
+
   let random = Math.floor(Math.random() * quotes.length);
 
   let quote = quotes[random][0];
@@ -156,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function () {
   let element = document.getElementById('toastNotice');
 
   // Create toast instance
-  var myToast = new bootstrap.Toast(element, option);
+  let myToast = new bootstrap.Toast(element, option);
 
   (function () {
     emailjs.init(process.env.KEY);
@@ -187,47 +204,8 @@ document.addEventListener('DOMContentLoaded', function () {
               });
             }
           );
-        // .then(
-        //   function (response) {
-        //     console.log('SUCCESS!', response.status, response.text);
-        //     myToast.show();
-        //   },
-        //   function (error) {
-        //     console.log('FAILED...', error);
-        //   }
-        // );
       });
   };
-});
-
-async function typeSentence(sentence, eleRef, delay = 100) {
-  const letters = sentence.split('');
-  let i = 0;
-  while (i < letters.length) {
-    if (i === 3) {
-      await waitForMs(700);
-    }
-    await waitForMs(delay);
-    eleRef.append(letters[i]);
-    i++;
-  }
-  return;
-}
-
-function waitForMs(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-document.addEventListener('DOMContentLoaded', init);
-
-function init() {
-  const txtElement = document.querySelector('.txt-type');
-  const words = JSON.parse(txtElement.getAttribute('data-words'));
-
-  typeSentence(words, txtElement);
-}
-
-document.addEventListener('DOMContentLoaded', function () {
   let wrap = document.getElementById('wrap');
   let fps = new FullPageScroll(wrap);
 
@@ -270,30 +248,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   document.body.appendChild(indicator);
-  // console.log(
-  //   'slide-',
-  //   (fps.onslide = function () {
-  //     slideIndicators.forEach(function (slideIndicator, index) {
-  //       if (index === fps.currentSlide) {
-  //         slideIndicator.className = 'active';
-  //       } else {
-  //         slideIndicator.className = '';
-  //       }
-  //     });
-  //   })
-  // );
-
-  // fps.slides.forEach(function (slide, index) {
-  //   let menu = document.getElementsByClassName('menu')[0];
-  //   menu.onclick = function () {
-  //     fps.goToSlide(index);
-  //   };
-  // });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-  let wrap = document.getElementById('wrap');
-  let fps = new FullPageScroll(wrap);
 
   let indicators = document.getElementsByClassName('item');
   let menuItems = Array.from(indicators);
@@ -304,3 +258,96 @@ document.addEventListener('DOMContentLoaded', function () {
     };
   });
 });
+
+// async function typeSentence(sentence, eleRef, delay = 100) {
+//   const letters = sentence.split('');
+//   let i = 0;
+//   while (i < letters.length) {
+//     if (i === 3) {
+//       await waitForMs(700);
+//     }
+//     await waitForMs(delay);
+//     eleRef.append(letters[i]);
+//     i++;
+//   }
+//   return;
+// }
+
+// function waitForMs(ms) {
+//   return new Promise(resolve => setTimeout(resolve, ms));
+// }
+
+// document.addEventListener('DOMContentLoaded', init);
+
+// function init() {
+//   const txtElement = document.querySelector('.txt-type');
+//   const words = JSON.parse(txtElement.getAttribute('data-words'));
+
+//   typeSentence(words, txtElement);
+// }
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   let wrap = document.getElementById('wrap');
+//   let fps = new FullPageScroll(wrap);
+
+//   let indicator = document.createElement('div');
+//   indicator.id = 'indicator';
+
+//   let slideIndicators = [];
+
+//   fps.slides.forEach(function (slide, index) {
+//     let slideIndicator = document.createElement('div');
+
+//     slideIndicator.innerHTML = `<div class="icon">
+//       <svg
+//         class="heart-main"
+//         viewBox="0 0 512 512"
+//         width="50"
+//         title="heart"
+//       >
+//         <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" />
+//       </svg>
+//       <svg
+//         class="heart-background"
+//         viewBox="0 0 512 512"
+//         width="100"
+//         title="heart"
+//       >
+//         <path d="M462.3 62.6C407.5 15.9 326 24.3 275.7 76.2L256 96.5l-19.7-20.3C186.1 24.3 104.5 15.9 49.7 62.6c-62.8 53.6-66.1 149.8-9.9 207.9l193.5 199.8c12.5 12.9 32.8 12.9 45.3 0l193.5-199.8c56.3-58.1 53-154.3-9.8-207.9z" />
+//       </svg>
+//     </div>`;
+
+//     slideIndicator.onclick = function () {
+//       fps.goToSlide(index);
+//     };
+//     if (index === fps.currentSlide) {
+//       slideIndicator.className = 'active';
+//     }
+
+//     indicator.appendChild(slideIndicator);
+//     slideIndicators.push(slideIndicator);
+//   });
+
+//   document.body.appendChild(indicator);
+
+// fps.slides.forEach(function (slide, index) {
+//   let menu = document.getElementsByClassName('menu')[0];
+//   menu.onclick = function () {
+//     fps.goToSlide(index);
+//   };
+// });
+// });
+
+// document.addEventListener('DOMContentLoaded', function () {
+//   let wrap = document.getElementById('wrap');
+//   let fps = new FullPageScroll(wrap);
+
+//   let indicators = document.getElementsByClassName('item');
+//   let menuItems = Array.from(indicators);
+
+//   menuItems.forEach(function (slide, index) {
+//     slide.onclick = function () {
+//       fps.goToSlide(index);
+//     };
+//   });
+// });
