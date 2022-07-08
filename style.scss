@@ -123,31 +123,31 @@ $color-black: #1d5139;
             background: var(--bg-focus-card);
             color: var(--tx-focus-card);
             .card-text {
-                font-weight: var(--tx-focus-font-weight);
+                // font-weight: var(--tx-focus-font-weight);
+                font-size: small;
             }
         }
 
 
         .card-image {
+          height: 44%;
 
-            position: relative;
+            // .image-overlay {
+            //     position: absolute;
+            //     top: 0;
+            //     bottom: 0;
+            //     left: 0;
+            //     right: 0;
+            //     height: 100%;
+            //     width: 100%;
+            //     opacity: 0;
+            //     transition: 0.5s ease;
+            //     background: var(--bg-focus-card-overlay);
+            // }
 
-            .image-overlay {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                height: 100%;
-                width: 100%;
-                opacity: 0;
-                transition: 0.5s ease;
-                background: var(--bg-focus-card-overlay);
-            }
-
-            &:hover .image-overlay {
-                opacity: 1;
-            }
+            // &:hover .image-overlay {
+            //     opacity: 1;
+            // }
         }
 
         .text-img-over {
@@ -345,6 +345,11 @@ $color-black: #1d5139;
      }
 }
 
+
+.image-overlay {
+  height: 10%;
+}
+
 .foodie {
   max-height: 221px;
   max-width: 198px;
@@ -368,14 +373,13 @@ h5   {
 
 
 img#foodie {
-margin: 0% 20%;
-padding: 6px;
+margin: 0% 21%;
 width: auto;
-height: 96%;
+height: 100%;
 filter: blur(5px);
 -webkit-filter: blur(5px);
-
 }
+
 
 
 
@@ -654,6 +658,7 @@ transition: all 300ms ease-in-out;
 
 .card-img {
   visibility: hidden;
+  min-height: 111%;
   width: 100%;
   height: var(--card-img-height);
   background-repeat: no-repeat;
@@ -768,6 +773,9 @@ transition: all 300ms ease-in-out;
 }
 }
 
+.card-img-top {
+  height: 114%
+}
 
 
 #tech-projects {
