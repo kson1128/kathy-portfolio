@@ -9,7 +9,7 @@
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-$color-white: #86888a;
+$color-white: #caccce;
 $color-black: #000000;
 $color-blue: #64AABA;
 
@@ -579,14 +579,14 @@ h1 {
   border-color: rgba(200, 220, 0, 0.1);
   border-style: solid;
   border-width: 1px;
-  min-height: 200px;
-  max-width: 52vh;
+  min-height: 187px;
+  max-width: 22%;
   // margin:0 auto;
-  margin-left: 77%;
-  margin-top: 10em;
-  padding-bottom: 35px;
-  padding-left: 0px;
-  padding-right: 0px;
+  margin-left: 76%;
+  margin-top: 9%;
+  padding-bottom: 28px;
+  padding-left: 1px;
+  padding-right: 3px;
   background-color: lightyellow;
   border-radius: 2px 2px 2px 2px;
   font-family: Noticia Text, Sans-Serif, Monospace;
@@ -597,7 +597,8 @@ h1 {
 }
 
 #quote {
-  padding-left: 30px;
+  padding-left: 26px;
+  padding-right: 18px;
   font-size: 15px;
   font-style: italic;
 }
@@ -609,14 +610,15 @@ h1 {
 //QUOTE BOX BUTTON
 #generate {
   display: inline-block;
-  padding:5px;
+  padding: 2px;
+  width: 62%;
   color: #32a99d;
   border: none;
   border-radius: 32px;
   font-size: .8em;
   font-family: monospace, sans-serif;
   cursor: pointer;
-  margin: 2vh 11vh;
+  margin: 3vh 11vh;
   transition: all 0.2s ease-in-out;
   &:hover {
     background-color: #32a99d;
@@ -1493,8 +1495,8 @@ article {
     align-items: center;
     width: 28%;
     position: absolute;
-    bottom: 29px;
-    left: 435px;
+    bottom: .8%;
+    left: 35%;
   }
 }
 
@@ -1558,13 +1560,10 @@ article {
   transition: all 0.5s ease;
 }
 
-// body {
-//   background: #dfdfdf;
-// }
 
 .container {
   width: auto;
-  height: 93%;
+  height: auto;
   padding: 0 16px;
   display: flex;
   flex-flow: row nowrap;
@@ -1648,8 +1647,8 @@ button:hover {
 .social-media {
   display: flex;
   position: absolute;
-  left: 22%;
-  bottom: 1.5%;
+  left: 20%;
+  bottom: 1%;
 }
 
 #contact {
