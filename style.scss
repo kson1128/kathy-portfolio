@@ -9,8 +9,9 @@
 @import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-$color-white: #fffbfa;
-$color-black: #1d5139;
+$color-white: #86888a;
+$color-black: #000000;
+$color-blue: #64AABA;
 
 
 
@@ -1075,7 +1076,7 @@ font-size: 15px;
 }
 
 .about-section .counter {
-padding: 18px;
+padding: 7px;
 background: #ffffff;
 border-radius: 10px;
 margin-top: 1%;
@@ -1498,25 +1499,10 @@ article {
 }
 
 .social-link {
-  &--linkedin {
-    color: #2587d7;
-  }
-
-  &--github {
-    color: #000;
-  }
-
-  &--dribbble {
-    color: #b53561;
-  }
-
-  &----envelope {
-    color: blue;
-  }
 
   & .social-svg {
     width: 4.8rem;
-    height: 4.8rem;
+    height: 3.2rem;
 
     & .social-group {
       &__icon {
@@ -1530,7 +1516,7 @@ article {
       }
 
       &__outline {
-        stroke: $color-black;
+        stroke: $color-blue;
         transform-origin: 50% 50%;
         transition: all 0.2s;
       }
@@ -1560,7 +1546,13 @@ article {
   }
 }
 
+.social-link--linkedin {
+  color: #00a0dc;
+}
+.social-link--envelope {
 
+  color: #9ba5a8
+}
 * {
   font-family: "Saira Semi Condensed", sans-serif;
   transition: all 0.5s ease;
@@ -1571,8 +1563,8 @@ article {
 // }
 
 .container {
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: 93%;
   padding: 0 16px;
   display: flex;
   flex-flow: row nowrap;
@@ -1581,7 +1573,7 @@ article {
 }
 
 form {
-  width: 400px;
+  height: initial;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
@@ -1631,7 +1623,7 @@ textarea::-webkit-scrollbar {
 }
 
 button {
-  background: #2f4ad0;
+  background: #57A79D;
   margin: 16px 0 50px 0;
   padding: 8px 16px;
   color: #fff;
@@ -1644,6 +1636,14 @@ button:hover {
   letter-spacing: 2px;
   box-shadow: none;
 }
+
+#toastbtn {
+  background: #57A79D;
+  border-radius: 70px;
+  color: white;
+}
+
+
 
 .social-media {
   display: flex;
