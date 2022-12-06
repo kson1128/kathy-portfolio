@@ -238,6 +238,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     slideIndicator.onclick = function () {
       fps.goToSlide(index);
+      console.log('fps-', fps);
     };
     if (index === fps.currentSlide) {
       slideIndicator.className = 'active';
