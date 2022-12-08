@@ -250,7 +250,7 @@
                       Sequelize and JWT.
                     </p>
                   </div>
-                  <div class="card-footer position-absolute bottom-0 end-0">
+                  <!-- <div class="card-footer position-absolute bottom-0 end-0">
                     <div class="card-footer__info">
                       <span>
                         <a
@@ -261,6 +261,14 @@
                         </a>
                       </span>
                     </div>
+                  </div> -->
+                  <div
+                    type="button"
+                    class="btn-primary card-footer position-absolute bottom-0 end-0"
+                    data-toggle="modal"
+                    data-target="#tagged-modal"
+                  >
+                    <a class="text-uppercase read-more-1">View Project </a>
                   </div>
                 </div>
               </div>
@@ -316,7 +324,9 @@
                     <h3 class="card-title">iBook Shop</h3>
                     <div class="text-left my-2"></div>
                     <p class="card-text">
-                      Built with Next.js, Redux, Express, PostgreSQL, Sequelize.
+                      iBook Shop is an e-commerce website where you can find and
+                      buy your favorite books. Built with Next.js, Redux, CSS,
+                      Express, PostgreSQL, and Prisma.
                     </p>
                   </div>
                   <div class="card-footer position-absolute bottom-0 end-0">
@@ -663,6 +673,62 @@
           </h5>
           <!--/.Indicators-->
           <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!----End Of Modal---->
+
+    <!---- TAGGED MODAL---->
+    <div
+      class="modal fade"
+      id="tagged-modal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="tagged-modal"
+      aria-hidden="true"
+    >
+      <div
+        class="modal-dialog modal-dialog-centered modal-dialog modal-lg"
+        role="document"
+      >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              Tagged- augmented reality mobile app
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <!-- <div class="tagged-video"> -->
+            <iframe
+              id="taggedVideo"
+              width="560"
+              height="715"
+              src="//www.youtube.com/embed/RV3BlWju02E"
+              allowfullscreen
+            ></iframe>
+            <!-- </div> -->
+          </div>
+
+          <div class="modal-footer">
+            <h5>
+              <a href="https://github.com/GH-Squirtle-Squad/tagged">Github</a>
+            </h5>
             <button
               type="button"
               class="btn btn-secondary"

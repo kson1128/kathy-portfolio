@@ -11,9 +11,9 @@ $color-white: #caccce;
 $color-black: #000000;
 $color-blue: #64aaba;
 
-// .modal-body {
-//   padding-bottom: 50px;
-// }
+.modal-body {
+ height:500px;
+}
 
 .carousel-indicators li {
   background-color:#000000;
@@ -1708,4 +1708,12 @@ button:hover {
   form {
     width: 100%;
   }
+}
+
+
+#taggedVideo {
+width:90%;
+height:100%;
+margin-left:5%;
+margin-right:5%;
 }
