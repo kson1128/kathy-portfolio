@@ -868,142 +868,7 @@ section {
   background-size: cover;
 }
 
-$strings: (
-  'Hi, my name is Kathy! ' 'I am a Full Stack Engineer'
-    'with a passion for creating things.'
-);
 
-$durCharFwd: 0.1;
-$durFullGap: 2;
-$durCharBwd: 0.08;
-$durDoneGap: 1;
-
-$charCount: 0;
-$durTotal: 0;
-@each $string in $strings {
-  $charCount: $charCount + str-length($string);
-  $durTotal: $durTotal +
-    (str-length($string) * ($durCharFwd + $durCharBwd)) +
-    $durFullGap +
-    $durDoneGap;
-}
-@function percent($string, $letter, $modifier) {
-  $stringsPast: $string - 1;
-  $time: 0;
-  @while $stringsPast > 0 {
-    $time: $time +
-      (
-        ($durCharFwd + $durCharBwd) * (str-length(nth($strings, $stringsPast)))
-      ) +
-      $durFullGap +
-      $durDoneGap;
-    $stringsPast: $stringsPast - 1;
-  }
-  @if $letter <= str-length(nth($strings, $string)) {
-    $time: $time + ($durCharFwd * ($letter - 1));
-  } @else {
-    $time: $time +
-      ($durCharFwd * str-length(nth($strings, $string))) +
-      $durFullGap +
-      ($durCharBwd * ($letter - str-length(nth($strings, $string))));
-  }
-  @return ($time / $durTotal * 100 + $modifier) + '%';
-}
-$currentPercentage: 0;
-
-@keyframes typed {
-  @for $i from 1 through length($strings) {
-    @for $j from 1 through (str-length(nth($strings, $i)) * 2) {
-      @if $j < str-length(nth($strings, $i)) * 2 {
-        // not last character deleted
-        #{percent($i, $j, 0)},
-        #{percent($i, $j+1, -0.001)} {
-          @if $j <= str-length(nth($strings, $i)) {
-            content: quote(#{str_slice(nth($strings, $i), 1, $j)});
-          } @else {
-            content: quote(
-              #{str_slice(
-                  nth($strings, $i),
-                  1,
-                  str-length(nth($strings, $i)) -
-                    ($j - str-length(nth($strings, $i)))
-                )}
-            );
-          }
-        }
-      } @else {
-        @if $i < length($strings) {
-          // not last string
-          #{percent($i, $j, 0)},
-          #{percent($i+1, 1, -0.001)} {
-            content: '​'; // zero-width space to retain element height
-          }
-        } @else {
-          // last string
-          #{percent($i, $j, 0)},
-          100% {
-            content: '​'; // zero-width space to retain element height
-          }
-        }
-      }
-    }
-  }
-}
-@keyframes beam-blink {
-  75% {
-    border-color: transparent;
-  }
-}
-
-.words {
-  display: flex;
-  align-items: center;
-  margin-left: 43px;
-  margin-top: 240px;
-  justify-content: center;
-  background-repeat: repeat-y;
-  background-position: center center;
-  background-size: cover, 100% 3px;
-  font-size: calc(10px + 1vw);
-  font-family: 'VT323', monospace, sans-serif;
-  color: #3f3;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  &::after {
-    content: '​';
-    position: absolute;
-    top: 389px;
-    margin: -25px -24px;
-    right: 550px;
-    // @media screen and (max-width: 575px) {
-    //   background-repeat: repeat;
-    //   position: fixed;
-    //   top: 229px;
-    // }
-    @media only screen and (min-width: 960px) {
-      /* styles for browsers larger than 960px; */
-      position: absolute;
-      top: 15%;
-      right: 36%;
-    }
-
-    @media only screen and (max-width: 960px) {
-      /* styles for browsers smaller than 960px; */
-      position: absolute;
-      top: 15%;
-      right: 35%;
-    }
-    display: inline-block;
-    padding-right: 3px;
-    padding-right: calc(2px + 0.1vw);
-    border-right: 10px solid rgba(#3f3, 0.75);
-    border-right: calc(1.1vw - 15px) solid rgba(#3f3, 0.75);
-    text-shadow: 0 0 5px rgba(51, 255, 51, 0.75);
-    white-space: nowrap;
-    animation: typed #{$durTotal + 's'} linear 1s infinite,
-      beam-blink 1s infinite;
-  }
-}
 
 section.article1:first-child {
   background-image: url('./src/imgs/bg.png');
@@ -1134,7 +999,7 @@ img {
   padding: 7px;
   background: #ffffff;
   border-radius: 10px;
-  margin-top: 1%;
+  margin-top: -2%;
   height: max-content;
   box-shadow: 0 0 30px rgba(31, 45, 61, 0.125);
 }
